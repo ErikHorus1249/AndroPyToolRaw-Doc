@@ -13,6 +13,7 @@ Sau khi thực hiện đủ 7 bước phân tích bằng AndroPyTool sẽ thu đ
 - [FlowDroid_processed](h)
 - [samples](h)
 - [VT_analysis](h)
+
 và tất nhiên trong các thư mục này phải tồn tại các file dữ liệu đó là các .[**json**](h) và .[**csv**](h).
 
 ![](https://i.imgur.com/xBGlf7Q.png)
@@ -20,7 +21,7 @@ Duới đây là ví dụ cụ thể cho nội dung dữ liệu trong các folde
 
 > 
     05af60ce8a8c3cd31682982122423ef3-analysis.json
-Nẳm trong thư mục `/Features_files` cụ thể thì đó là các  **API call** sau khi đã bị bóc tách ra khỏi file json.
+Nằm trong thư mục `/Features_files` cụ thể thì đó là các  **API call** sau khi đã bị bóc tách ra khỏi file json.
 
 ![](https://i.imgur.com/JPpNn6l.png)
 
