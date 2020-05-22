@@ -33,13 +33,7 @@ function Features_files(){
 	var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
 	var opcode_info = JSON.parse(output_info);
 
-	var maxOpcode = {
-		valueMax : 0,
-		valueMin : 1,
-		nameMax : '',
-		nameMin : '',
-		sumOfOpcode : 0
-	}
+	var maxOpcode = { valueMax : 0, valueMin : 1, nameMax : '', nameMin : '', sumOfOpcode : 0 };
 
 	for (x in opcode_info.Static_analysis.Opcodes) {
     
@@ -56,13 +50,8 @@ function Features_files(){
     	// console.log(opcode_info.Static_analysis.API calls[x]);
 
 }
-	var  Api_call_temp = {
-		valueMax : 0,
-		valueMin : 1,
-		nameMax : '',
-		nameMin : '',
-		sumOfAPICalls : 0
-	}
+	var  Api_call_temp = { valueMax : 0, valueMin : 1, nameMax : '', nameMin : '', sumOfAPICalls : 0 };
+
 	var API_Calls = {};
 	var Strings = {};
 	for (x in opcode_info.Static_analysis) {
