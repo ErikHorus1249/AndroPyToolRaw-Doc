@@ -9,31 +9,28 @@ var fs = require('fs');
 
 function VirusTotalLink(){
 
-	try {
-		var pathVT = readlineSync.question('Duong dan den file Json trong thu muc VT_analysis :');
-  		var VT_link = fs.readFileSync(pathVT, {encoding: 'utf-8'});
-	}
-	catch(err) {
-    	console.log("Sai duong dan, nhap lai :) ");
-	}
+	const regexVT = /(\/VT_analysis\/)\w+\W(json)/g;
 
+	do{
+		var pathVT  = readlineSync.question('Duong dan den file Json trong thu muc VT_analysis :');
+	}while(!regexVT.test(pathVT))
+
+	var VT_link = fs.readFileSync(pathVT, {encoding: 'utf-8'});
 	var VT_link_json = JSON.parse(VT_link);
 
-	console.log(VT_link_json.permalink);
-	// console.log(VT_link_json);
+	console.log("\n Permalink : " + VT_link_json.permalink + "\n");
+
 }
 
 function Features_files(){
 
+	const regexFeatures = /(\/Features_files\/)\w+\W\w+(.json)/g;
 	
-	try {
+	do{
 		var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
-  		var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
-	}
-	catch(err) {
-    	console.log("Sai duong dan, nhap lai :) ");
-	}
-	
+	}while(!regexFeatures.test(Features_files_path))
+
+	var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
 	var opcode_info = JSON.parse(output_info);
 
 	var maxOpcode = {
@@ -50,7 +47,7 @@ function Features_files(){
     		maxOpcode.valueMax = opcode_info.Static_analysis.Opcodes[x];
     		maxOpcode.nameMax = x;
     	}
-    	if(opcode_info.Static_analysis.Opcodes[x] === 1){
+    	if(opcode_info.Static_analysis.Opcodes[x] <= maxOpcode.valueMin){
     		maxOpcode.valueMin = opcode_info.Static_analysis.Opcodes[x];
     		maxOpcode.nameMin = x;
     	}
@@ -84,7 +81,7 @@ function Features_files(){
     		Api_call_temp.valueMax = API_Calls[x];
     		Api_call_temp.nameMax = x;
     	}
-    	if(API_Calls[x] === 1){
+    	if(API_Calls[x] <= Api_call_temp.valueMin){
     		Api_call_temp.valueMin = API_Calls[x];
     		Api_call_temp.nameMin = x;
     	}
@@ -106,15 +103,16 @@ function Features_files(){
     	}
 
 	}
-	console.log("Op-code xuat hien nhieu nhat : " + maxOpcode.nameMax);
-	console.log("Op-code xuat hien it nhat : " + maxOpcode.nameMin);
-	console.log("Tong so op-code quan sat duoc : " + maxOpcode.sumOfOpcode);
+	console.log("\n + Ten cua ung dung da duoc phan tich : " + opcode_info.Pre_static_analysis.md5 + ".apk");
+	console.log("\n + Op-code xuat hien nhieu nhat : " + maxOpcode.nameMax + ", So lan xuat hien : " + maxOpcode.valueMax);
+	console.log("\n + Op-code xuat hien it nhat : " + maxOpcode.nameMin);
+	console.log("\n + Tong so op-code quan sat duoc : " + maxOpcode.sumOfOpcode);
 
-	console.log("API Call duoc goi nhieu nhat : " + Api_call_temp.nameMax);
-	console.log("API Call duoc goi it nhat : " + Api_call_temp.nameMin);
-	console.log("Tong so API Calls quan sat duoc : " + Api_call_temp.sumOfAPICalls);
+	console.log("\n + API Call duoc goi nhieu nhat : " + Api_call_temp.nameMax + ", So lan xuat hien : " + Api_call_temp.valueMax);
+	console.log("\n + API Call duoc goi it nhat : " + Api_call_temp.nameMin);
+	console.log("\n + Tong so API Calls quan sat duoc : " + Api_call_temp.sumOfAPICalls);
 
-	console.log("Chuoi ki tu dai nhat trong doan ma : " + Strings_temp.nameMax);
+	console.log("\n + Chuoi ki tu dai nhat trong doan ma : " + Strings_temp.nameMax);
 }
 
 
