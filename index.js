@@ -1,13 +1,12 @@
 
 readlineSync = require('readline-sync');
-
-
-
 var fs = require('fs');
 
 
 
 function VirusTotalLink(){
+
+	// Tao regex de kiem tra duong dan dau vao 
 
 	const regexVT = /(\/VT_analysis\/)\w+\W(json)/g;
 
@@ -18,6 +17,7 @@ function VirusTotalLink(){
 	var VT_link = fs.readFileSync(pathVT, {encoding: 'utf-8'});
 	var VT_link_json = JSON.parse(VT_link);
 
+	// hien thi permalink sau khi tach ra khoi json
 	console.log("\n Permalink : " + VT_link_json.permalink + "\n");
 
 }
