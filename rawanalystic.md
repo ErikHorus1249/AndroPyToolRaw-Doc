@@ -82,7 +82,7 @@ sau đó mở **Terminal** lên và chạy file [**index.js**](h)  bằng lệnh
 
 ![](https://i.imgur.com/6A5BeA3.png)- Khi nhâp đúng đường dẫn từ hai thư mục trên thì kết quả nhận được như sau : 
 
-![](https://i.imgur.com/8L7Kofn.png)
+![](https://i.imgur.com/D2dr74U.png)
 
 Đầy đủ thông tin như vậy là xong :> 
 

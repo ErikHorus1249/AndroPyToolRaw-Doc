@@ -6,7 +6,7 @@ var fs = require('fs');
 
 function VirusTotalLink(){
 
-	// Tao regex de kiem tra duong dan dau vao 
+	// Tao regex de kiem tra duong dan dau vao
 
 	const regexVT = /(\/VT_analysis\/)\w+\W(json)/g;
 
@@ -25,7 +25,7 @@ function VirusTotalLink(){
 function Features_files(){
 
 	const regexFeatures = /(\/Features_files\/)\w+\W\w+(.json)/g;
-	
+
 	do{
 		var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
 	}while(!regexFeatures.test(Features_files_path))
@@ -36,7 +36,7 @@ function Features_files(){
 	var maxOpcode = { valueMax : 0, valueMin : 1, nameMax : '', nameMin : '', sumOfOpcode : 0 };
 
 	for (x in opcode_info.Static_analysis.Opcodes) {
-    
+
     	if(maxOpcode.valueMax < opcode_info.Static_analysis.Opcodes[x]){
     		maxOpcode.valueMax = opcode_info.Static_analysis.Opcodes[x];
     		maxOpcode.nameMax = x;
@@ -46,26 +46,26 @@ function Features_files(){
     		maxOpcode.nameMin = x;
     	}
 
-    	maxOpcode.sumOfOpcode += opcode_info.Static_analysis.Opcodes[x];
+    	// maxOpcode.sumOfOpcode += opcode_info.Static_analysis.Opcodes[x];
     	// console.log(opcode_info.Static_analysis.API calls[x]);
-
+			maxOpcode.sumOfOpcode ++;
 }
 	var  Api_call_temp = { valueMax : 0, valueMin : 1, nameMax : '', nameMin : '', sumOfAPICalls : 0 };
 
 	var API_Calls = {};
 	var Strings = {};
 	for (x in opcode_info.Static_analysis) {
-   
+
     	if(x == "API calls"){
     		API_Calls = opcode_info.Static_analysis[x];
     	}
 
     	if(x == "Strings"){
     		Strings = opcode_info.Static_analysis[x];
-    	}	
+    	}
 	}
 	for (x in API_Calls) {
-    
+
     	if(Api_call_temp.valueMax < API_Calls[x]){
     		Api_call_temp.valueMax = API_Calls[x];
     		Api_call_temp.nameMax = x;
@@ -74,7 +74,7 @@ function Features_files(){
     		Api_call_temp.valueMin = API_Calls[x];
     		Api_call_temp.nameMin = x;
     	}
-    	Api_call_temp.sumOfAPICalls += API_Calls[x];
+    	Api_call_temp.sumOfAPICalls ++;
     	// console.log(opcode_info.Static_analysis.API calls[x]);
 
 	}
@@ -85,7 +85,7 @@ function Features_files(){
 	}
 
 	for (x in Strings) {
-    	
+
     	if(x.length > Strings_temp.valueMax){
     		Strings_temp.valueMax = x.length;
     		Strings_temp.nameMax = x;
@@ -110,4 +110,3 @@ function Features_files(){
 VirusTotalLink();
 
 Features_files();
-
