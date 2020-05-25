@@ -57,10 +57,15 @@ Muốn lấy được thông tin của máy ảo Android thì cần truy cập t
 - Giao diện của **monitor** .
 
 ![](https://i.imgur.com/2BJLIRD.png)
-- Sau đó chọn Android Virtual Device Manager
+- Sau đó chọn **Android Virtual Device Manager**
 
-![](https://i.imgur.com/vH1AMqD.png)
+![](https://i.imgur.com/OupJWIX.png)
+- click vào máy ảo đã được cấu hình sau đó chọn chế độ **Details** để xem thông tin cụ thể từ máy ảo Android.
 
+![](https://i.imgur.com/o0MNS4Y.png)
+- Lấy thông tin từ khung dưới rồi thêm vào form là xong. 
+
+![](https://i.imgur.com/0B1GwIM.png)
 ### 2. Trích xuất dữ liệu sau khi sử dụng AndroPyTool 
 #### Cách 1. Trích xuất thủ công 
 [Đường dẫn phân tích "permalink" của Virus total ?](h)
