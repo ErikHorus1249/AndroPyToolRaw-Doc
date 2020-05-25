@@ -6,6 +6,7 @@ Date : 22/05/2020
 ## Kết quả sau phân tích bằng AndroPyTool
 ![https://i.imgur.com/uPxOxMa.jpg](https://i.imgur.com/uPxOxMa.jpg)![](https://i.imgur.com/hSlJXqr.png)
 ### I. Một số yếu tố cần chú ý 
+
 Sau khi thực hiện đủ 7 bước phân tích bằng AndroPyTool sẽ thu được các thư mục sau :
 - [DroidBox_outputs](h)
 - [Dynamic](h)
@@ -30,8 +31,37 @@ Vậy những gì cần chú ý cho form thứ 2 về bài thực hành AndroPyT
 
 ### II. Câu hỏi trong form thực hành lần 2 
 
-Những câu hỏi liên quan đến cấu hình mình sẽ không nói trong bài này :> các bạn hãy tự tìm hiểu.
+### 1. Thông tin của máy ảo android 
+Muốn lấy được thông tin của máy ảo Android thì cần truy cập thư mục `tools`  trong `/home/android-sdk-linux` để chạy `monitor` để lấy thông tin.
 
+
+![](https://i.imgur.com/eyn0NgF.png)
+
+- Sử dụng lệnh sau : 
+
+>
+ 
+
+    $ cd
+
+>
+    $ cd /android-sdk-linux/tools
+>
+    $ monitor
+![](https://i.imgur.com/lKd9Fqo.png)
+![](https://i.imgur.com/2gI2CP4.png)
+
+- Sau khi **monitor** khởi động 
+
+![](https://i.imgur.com/ncBZstD.png)
+- Giao diện của **monitor** .
+
+![](https://i.imgur.com/2BJLIRD.png)
+- Sau đó chọn Android Virtual Device Manager
+
+![](https://i.imgur.com/vH1AMqD.png)
+
+### 2. Trích xuất dữ liệu sau khi sử dụng AndroPyTool 
 #### Cách 1. Trích xuất thủ công 
 [Đường dẫn phân tích "permalink" của Virus total ?](h)
 Khi vào thư mục `/VT_analysis` mở tệp **.json** duy nhất trong thư mục đó bằng một trình soạn thảo bất kì tìm bằng `Ctrl + F` từ khóa "permalink" sẽ lấy được link. Nó sẽ dẫn đến trang của Virus Total và hiển thị phân tích sơ lược về file APK mà bạn đã dùng dựa trên cơ sở dữ liệu của Virus Total. Khi trả lời form thì trích lấy cái link thôi :>
