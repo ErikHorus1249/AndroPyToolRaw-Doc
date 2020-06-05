@@ -45,12 +45,12 @@ function Features_files(){
     		maxOpcode.valueMin = opcode_info.Static_analysis.Opcodes[x];
     		maxOpcode.nameMin = x;
 	
-	for (x in opcode_info.Static_analysis.Opcodes) {
-		console.log(x);
-	}
-	for (x in opcode_info.Static_analysis.Opcodes) {
-		console.log(opcode_info.Static_analysis.Opcodes[x]);
-	}
+	//for (x in opcode_info.Static_analysis.Opcodes) {
+	//	console.log(x);
+	//}
+	//for (x in opcode_info.Static_analysis.Opcodes) {
+	//	console.log(opcode_info.Static_analysis.Opcodes[x]);
+	//}
     	}
 
     	// maxOpcode.sumOfOpcode += opcode_info.Static_analysis.Opcodes[x];
@@ -85,7 +85,12 @@ function Features_files(){
     	// console.log(opcode_info.Static_analysis.API calls[x]);
 
 	}
-
+	for (x in API_Calls) {
+		console.log(x);
+	}
+	for (x in API_Calls) {
+		console.log(API_Calls[x]);
+	}
 	var  Strings_temp = {
 		valueMax : 0,
 		nameMax : ''
