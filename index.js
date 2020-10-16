@@ -25,11 +25,12 @@ function VirusTotalLink(){
 function Features_files(){
 
 	const regexFeatures = /(\/Features_files\/)\w+\W\w+(.json)/g;
-
+	const SecurityRegex = /(\w+.(security).\w+.\w+)/g;
+	const NetRegex = /(\w+.(net).\w+.\w+.\w+)/g;
 	do{
 		var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
 	}while(!regexFeatures.test(Features_files_path))
-
+	// var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
 	var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
 	var opcode_info = JSON.parse(output_info);
 
@@ -79,6 +80,15 @@ function Features_files(){
 
 	}
 
+	for (tmp in API_Calls){
+		// if(SecurityRegex.test(tmp)){
+		// 	console.log(tmp+"\n")
+		// }
+		if(NetRegex.test(tmp)){
+			console.log(tmp+"\n")
+		}
+	}
+
 	var  Strings_temp = {
 		valueMax : 0,
 		nameMax : ''
@@ -107,6 +117,6 @@ function Features_files(){
 
 
 
-VirusTotalLink();
+// VirusTotalLink();
 
 Features_files();
