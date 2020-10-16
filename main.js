@@ -27,10 +27,10 @@ function Features_files(){
 	const regexFeatures = /(\/Features_files\/)\w+\W\w+(.json)/g;
 	const SecurityRegex = /(\w+.(security).\w+.\w+)/g;
 	const NetRegex = /(\w+.(net).\w+.\w+.\w+)/g;
-	do{
-		var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
-	}while(!regexFeatures.test(Features_files_path))
-	// var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
+	// do{
+	// 	var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
+	// }while(!regexFeatures.test(Features_files_path))
+	var Features_files_path = "./BluezoneAndropytool/Bluezone-analysis.json"
 	var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
 	var opcode_info = JSON.parse(output_info);
 
@@ -55,6 +55,8 @@ function Features_files(){
 
 	var API_Calls = {};
 	var Strings = {};
+	var Services = {};
+
 	for (x in opcode_info.Static_analysis) {
 
     	if(x == "API calls"){
@@ -63,7 +65,11 @@ function Features_files(){
 
     	if(x == "Strings"){
     		Strings = opcode_info.Static_analysis[x];
-    	}
+		}
+		
+		if(x == "Service"){
+			Services = opcode_info.Static_analysis[x];
+		}
 	}
 	for (x in API_Calls) {
 
@@ -79,16 +85,7 @@ function Features_files(){
     	// console.log(opcode_info.Static_analysis.API calls[x]);
 
 	}
-
-	for (tmp in API_Calls){
-		// if(SecurityRegex.test(tmp)){
-		// 	console.log(tmp+"\n")
-		// }
-		if(NetRegex.test(tmp)){
-			console.log(tmp+"\n")
-		}
-	}
-
+	
 	var  Strings_temp = {
 		valueMax : 0,
 		nameMax : ''
@@ -111,7 +108,23 @@ function Features_files(){
 	console.log("\n + API Call duoc goi it nhat : " + Api_call_temp.nameMin);
 	console.log("\n + Tong so API Calls quan sat duoc : " + Api_call_temp.sumOfAPICalls);
 
-	console.log("\n + Chuoi ki tu dai nhat trong doan ma : " + Strings_temp.nameMax);
+	console.log("+ API an toan : \n")
+	for (tmp in API_Calls){
+		// Api an toan
+		if(SecurityRegex.test(tmp)){
+			console.log(tmp+"\n")
+		}
+	}
+	console.log("+ API mang : \n")
+	for (tmp in API_Calls){
+		// API mang
+		if(NetRegex.test(tmp)){
+			console.log(tmp+"\n")
+		}
+	}
+
+	
+	// console.log("\n + Chuoi ki tu dai nhat trong doan ma : " + Strings_temp.nameMax);
 }
 
 
