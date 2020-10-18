@@ -30,7 +30,8 @@ function Features_files(){
 	// do{
 	// 	var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
 	// }while(!regexFeatures.test(Features_files_path))
-	var Features_files_path = "./BluezoneAndropytool/Bluezone-analysis.json"
+	// var Features_files_path = "./BluezoneAndropytool/Bluezone-analysis.json"
+	var Features_files_path = readlineSync.question('Duong dan den file Json trong thu muc Features_files :');
 	var output_info = fs.readFileSync(Features_files_path, {encoding: 'utf-8'});
 	var opcode_info = JSON.parse(output_info);
 
@@ -108,18 +109,18 @@ function Features_files(){
 	console.log("\n + API Call duoc goi it nhat : " + Api_call_temp.nameMin);
 	console.log("\n + Tong so API Calls quan sat duoc : " + Api_call_temp.sumOfAPICalls);
 
-	console.log("+ API an toan : \n")
+	console.log(" \n + API an toan : \n")
 	for (tmp in API_Calls){
 		// Api an toan
 		if(SecurityRegex.test(tmp)){
-			console.log(tmp+"\n")
+			console.log("\t" + tmp+"\n")
 		}
 	}
-	console.log("+ API mang : \n")
+	console.log("\n + API mang : \n")
 	for (tmp in API_Calls){
 		// API mang
 		if(NetRegex.test(tmp)){
-			console.log(tmp+"\n")
+			console.log("\t" + tmp+"\n")
 		}
 	}
 
