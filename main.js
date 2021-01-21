@@ -108,22 +108,26 @@ function Features_files(){
 	console.log("\n + API Call duoc goi nhieu nhat : " + Api_call_temp.nameMax + ", So lan xuat hien : " + Api_call_temp.valueMax);
 	console.log("\n + API Call duoc goi it nhat : " + Api_call_temp.nameMin);
 	console.log("\n + Tong so API Calls quan sat duoc : " + Api_call_temp.sumOfAPICalls);
-
+	var sum = 0;
 	console.log(" \n + API an toan : \n")
 	for (tmp in API_Calls){
 		// Api an toan
 		if(SecurityRegex.test(tmp)){
 			console.log("\t" + tmp+"\n")
+			// sum += 1
 		}
 	}
 	console.log("\n + API mang : \n")
+	
 	for (tmp in API_Calls){
 		// API mang
 		if(NetRegex.test(tmp)){
+			sum += 1
 			console.log("\t" + tmp+"\n")
 		}
+		
 	}
-
+	console.log("	Tong API mang : "+" " + sum);
 	
 	// console.log("\n + Chuoi ki tu dai nhat trong doan ma : " + Strings_temp.nameMax);
 }
